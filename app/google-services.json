@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "839582984702",
+    "project_id": "e-com-d9ad6",
+    "storage_bucket": "e-com-d9ad6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839582984702:android:b403b4d55c2c0e8e0af8af",
+        "android_client_info": {
+          "package_name": "com.jasmeet.e_commerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "839582984702-pg9f2qdp1nq1ovuuatk2e1c30lurtkte.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jasmeet.e_commerce",
+            "certificate_hash": "9166fe4786451b8a6077e38518e71385be4e4089"
+          }
+        },
+        {
+          "client_id": "839582984702-7ip4q5bm3ev2pvh71sk9q2v0i6fv9mmm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfwvNRwvWu1pHsNrkzM5Nn5UuQYINIGBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "839582984702-7ip4q5bm3ev2pvh71sk9q2v0i6fv9mmm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
