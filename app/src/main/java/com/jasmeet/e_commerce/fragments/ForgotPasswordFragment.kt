@@ -44,12 +44,17 @@ class ForgotPasswordFragment : Fragment() {
             Toast.makeText(requireContext(),"Enter a valid Email id !",Toast.LENGTH_SHORT).show()
         }
         else{
+            binding.btnSubmit.startAnimation()
             firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener { task->
                 if (task.isSuccessful){
+                    binding.btnSubmit.revertAnimation()
                     Toast.makeText(requireContext(),"Email sent successfully to rest your password !",Toast.LENGTH_SHORT).show()
+                    binding.edtEmail.text= null
 
                 }
                 else{
+                    binding.btnSubmit.revertAnimation()
+                    binding.edtEmail.text= null
                     Toast.makeText(requireContext(),task.exception!!.message.toString(),Toast.LENGTH_SHORT).show()
                 }
 

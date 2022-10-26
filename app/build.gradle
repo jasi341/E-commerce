@@ -53,6 +53,9 @@ dependencies {
     //firebase auth
     implementation 'com.google.firebase:firebase-auth'
 
+    //firebase fireStore kotlin
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+
      //lottie
     implementation 'com.airbnb.android:lottie:5.2.0'
 

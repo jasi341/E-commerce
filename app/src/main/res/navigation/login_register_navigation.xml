@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@id/introFragment">
+    app:startDestination="@id/experimentalSplashFragment">
 
     <fragment
         android:id="@+id/introFragment"
@@ -46,5 +46,14 @@
         <action
             android:id="@+id/action_forgotPasswordFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/experimentalSplashFragment"
+        android:name="com.jasmeet.e_commerce.fragments.ExperimentalSplashFragment"
+        android:label="fragment_experimental_splash"
+        tools:layout="@layout/fragment_experimental_splash" >
+        <action
+            android:id="@+id/action_experimentalSplashFragment_to_introFragment"
+            app:destination="@id/introFragment" />
     </fragment>
 </navigation>
