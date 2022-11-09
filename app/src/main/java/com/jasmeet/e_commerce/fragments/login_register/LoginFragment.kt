@@ -1,5 +1,6 @@
-package com.jasmeet.e_commerce.fragments
+package com.jasmeet.e_commerce.fragments.login_register
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
@@ -13,13 +14,14 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.jasmeet.e_commerce.R
-import com.jasmeet.e_commerce.activities.TempActivity2
+import com.jasmeet.e_commerce.activities.ShoppingActivity
 import com.jasmeet.e_commerce.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var dialog:AlertDialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -94,7 +96,7 @@ class LoginFragment : Fragment() {
                         binding.edtEmail.text= null
                         binding.edtPassword.text = null
                         binding.btnLogin.revertAnimation()
-                        startActivity(Intent(requireContext(), TempActivity2::class.java))
+                        startActivity(Intent(requireContext(), ShoppingActivity::class.java))
                         requireActivity().finish()
                     }
                 }

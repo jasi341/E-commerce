@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/blurry_background"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.IntroFragment">
+    tools:context=".fragments.login_register.IntroFragment">
 
 
     <TextView

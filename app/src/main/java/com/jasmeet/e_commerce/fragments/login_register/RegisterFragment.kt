@@ -1,4 +1,4 @@
-package com.jasmeet.e_commerce.fragments
+package com.jasmeet.e_commerce.fragments.login_register
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,16 +14,22 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jasmeet.e_commerce.R
-import com.jasmeet.e_commerce.activities.TempActivity2
+import com.jasmeet.e_commerce.activities.ShoppingActivity
 import com.jasmeet.e_commerce.constants.Constants.USER_COLLECTION
 import com.jasmeet.e_commerce.databinding.FragmentRegisterBinding
 import com.jasmeet.e_commerce.model.UserInfo
 
+
+
 class SignInFragment : Fragment() {
 
-    private lateinit var binding: FragmentRegisterBinding
+
+
+
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var binding: FragmentRegisterBinding
     private lateinit var db: FirebaseFirestore
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -130,7 +136,7 @@ class SignInFragment : Fragment() {
             .set(data)
             .addOnSuccessListener {
                 binding.btnRegister.revertAnimation()
-                startActivity(Intent(requireContext(), TempActivity2::class.java))
+                startActivity(Intent(requireContext(), ShoppingActivity::class.java))
                 requireActivity().finish()
 
             }.addOnFailureListener {
