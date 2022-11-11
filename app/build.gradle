@@ -40,7 +40,6 @@ android {
 }
 
 dependencies {
-
     apply plugin: 'kotlin-kapt'
 
     implementation 'androidx.core:core-ktx:1.9.0'
@@ -59,6 +58,9 @@ dependencies {
 
     //firebase fireStore kotlin
     implementation 'com.google.firebase:firebase-firestore-ktx'
+
+    //cloud storage ktx
+    implementation 'com.google.firebase:firebase-storage-ktx'
 
      //lottie
     implementation 'com.airbnb.android:lottie:5.2.0'
@@ -79,6 +81,24 @@ dependencies {
 
     //viewpager2 indicator
     implementation 'io.github.vejei.viewpagerindicator:viewpagerindicator:1.0.0-alpha.1'
+
+    //progress bar
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+    //Color picker
+    implementation "com.github.skydoves:colorpickerview:2.2.4"
+
+    //Lifecycle
+    def lifecycle_version = "2.5.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+
+    //Coroutines for firebase
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.1'
+
+    //ml barcode
+    implementation 'com.google.mlkit:barcode-scanning:17.0.2'
+    implementation 'com.google.android.gms:play-services-mlkit-barcode-scanning:18.1.0'
+
 
 
 }

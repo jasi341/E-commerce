@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="tabLayout_text" parent="TextAppearance.AppCompat">
+    <style
+        name="tabLayout_text" parent="TextAppearance.AppCompat">
         <item name="color">@color/black</item>
         <item name="fontFamily">@font/poppins_regular</item>
         <item name="textAllCaps">false</item>
         <item name="android:textStyle">bold</item>
-
     </style>
+
+    <style
+        name="outlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeErrorColor">@android:color/holo_red_light</item>
+        <item name="errorIconTint">@android:color/holo_red_light</item>
+        <item name="errorTextColor">@android:color/holo_red_light</item>
+        <item name="helperTextTextAppearance">@style/TextAppearance.MaterialComponents.Subtitle1</item>
+    </style>
+
 </resources>

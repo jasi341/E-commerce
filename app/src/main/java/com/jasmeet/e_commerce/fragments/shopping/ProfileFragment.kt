@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.firebase.auth.FirebaseAuth
 import com.jasmeet.e_commerce.activities.MainActivity
+import com.jasmeet.e_commerce.activities.NewProductActivity
 import com.jasmeet.e_commerce.activities.ShoppingActivity
 import com.jasmeet.e_commerce.databinding.FragmentProfileBinding
 
@@ -31,6 +32,10 @@ class ProfileFragment : Fragment() {
             val intent = Intent(requireContext(), MainActivity::class.java)
             startActivity(intent)
             requireActivity().finish()
+        }
+
+        binding.addProducts.setOnClickListener {
+            startActivity(Intent(requireContext(), NewProductActivity::class.java))
         }
         return binding.root
     }

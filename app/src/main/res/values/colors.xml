@@ -23,4 +23,6 @@
     <color name="g_blue_gray200">#97AABD</color>
     <color name="grey">#ececec</color>
 
+    <color name="colorPrimary">#2fb6dc</color>
+
 </resources>
