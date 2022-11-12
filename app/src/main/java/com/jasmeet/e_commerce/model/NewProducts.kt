@@ -1,6 +1,6 @@
 package com.jasmeet.e_commerce.model
 
-data class Products(
+data class NewProducts(
     val id: String,
     val name: String,
     val category: String,

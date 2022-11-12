@@ -14,18 +14,18 @@
         android:layout_height="wrap_content"
         android:background="@color/white">
 
-        <com.github.ybq.android.spinkit.SpinKitView
-            android:id="@+id/spin_kit"
-            style="@style/SpinKitView.Large.Wave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:visibility="invisible"
-            app:SpinKit_Color="#023047"
-             />
+<!--        <com.github.ybq.android.spinkit.SpinKitView-->
+<!--            android:id="@+id/spin_kit"-->
+<!--            style="@style/SpinKitView.Large.Wave"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            android:visibility="invisible"-->
+<!--            app:SpinKit_Color="#023047"-->
+<!--             />-->
 
 
         <TextView
@@ -313,24 +313,31 @@
 
         </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
             android:id="@+id/uploadBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/btn_upload"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:backgroundTint="#99BF82"
             android:text="Upload Product"
-            android:textColor="@color/white"
-            app:backgroundTint="@null"
-            app:cornerRadius="10dp"
-            app:icon="@drawable/save"
-            app:iconGravity="textStart"
+            android:textAlignment="center"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:drawablePadding="10dp"
+            app:cornerRadius="5dp"
+            android:layout_marginBottom="15dp"
+            app:spinning_bar_color="#f2e8cf"
+            app:spinning_bar_padding="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

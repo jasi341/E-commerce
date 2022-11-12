@@ -6,7 +6,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.View
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -15,12 +15,11 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.jasmeet.e_commerce.databinding.ActivityNewProductBinding
-import com.jasmeet.e_commerce.model.Products
+import com.jasmeet.e_commerce.model.NewProducts
 import com.skydoves.colorpickerview.ColorEnvelope
 import com.skydoves.colorpickerview.ColorPickerDialog
 import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
@@ -33,7 +32,7 @@ class NewProductActivity : AppCompatActivity() {
     private var selectedImages = mutableListOf<Uri>()
     private val selectedColors = mutableListOf<Int>()
     private var productStorage = Firebase.storage.reference
-    private val firestore = Firebase.firestore
+    private val fireStore = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -161,7 +160,7 @@ class NewProductActivity : AppCompatActivity() {
             }
 
             try {
-                async {
+                withContext(Dispatchers.Default) {
                     imageByteArrays.forEach {
                         val id = UUID.randomUUID().toString()
                         launch {
@@ -171,7 +170,7 @@ class NewProductActivity : AppCompatActivity() {
                             images.add(downloadUrl)
                         }
                     }
-                }.await()
+                }
 
             }catch (e:Exception){
                 withContext(Dispatchers.Main){
@@ -181,20 +180,30 @@ class NewProductActivity : AppCompatActivity() {
 
 
             }
-            val product = Products(
+            val product = NewProducts(
                 UUID.randomUUID().toString(),
                 productName ,
                 category ,
                 price.toInt(),
                 if (offerPercentage.isEmpty()) null else offerPercentage.toFloat(),
-                if (description.isEmpty()) null else description,
+                description.ifEmpty { null },
                 if(selectedColors.isEmpty()) null else selectedColors,
                 size,
                 images
             )
-            firestore.collection("products").add(product).addOnSuccessListener {
+            fireStore.collection("products").add(product).addOnSuccessListener {
                 hideLoading()
-                Snackbar.make(binding.root,"Product uploaded successfully",Snackbar.LENGTH_SHORT).show()
+                //Snackbar.make(binding.root,"Product uploaded successfully",Snackbar.LENGTH_SHORT).show()
+                Toast.makeText(this@NewProductActivity,"Product uploaded successfully",Toast.LENGTH_SHORT).show()
+                binding.etName.text = null
+                binding.etCategory.text = null
+                binding.etDescription.text = null
+                binding.etPrice.text = null
+                binding.etPercentage.text = null
+                binding.etSize.text = null
+
+                startActivity(Intent(this@NewProductActivity,ShoppingActivity::class.java))
+
 
             }.addOnFailureListener {
                 hideLoading()
@@ -204,11 +213,13 @@ class NewProductActivity : AppCompatActivity() {
     }
 
     private fun hideLoading() {
-        binding.spinKit.visibility = View.GONE
+      //  binding.spinKit.visibility = View.GONE
+        binding.uploadBtn.revertAnimation()
     }
 
     private fun showLoading() {
-        binding.spinKit.visibility = View.VISIBLE
+       // binding.spinKit.visibility = View.VISIBLE
+        binding.uploadBtn.startAnimation()
     }
 
     private fun getImagesByteArrays(): List<ByteArray> {
